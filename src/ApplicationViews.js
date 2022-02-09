@@ -7,6 +7,7 @@ import { LocationList } from './components/location/LocationList.js'
 import { LocationDetail } from './components/location/LocationDetail.js'
 import { CustomerList } from './components/customer/CustomerList.js'
 import { EmployeeList } from './components/employee/EmployeeList.js'
+import { AnimalForm } from './components/animal/AnimalForm'
 
 export const ApplicationViews = () => {
     return (
@@ -18,6 +19,7 @@ export const ApplicationViews = () => {
                 {/* Render the animal list when http://localhost:3000/animals */}
                 <Route exact path="/animals" element={<AnimalList />} />
                 <Route path="/animals/:animalId" element={<AnimalDetail />} />
+                <Route path="/animals/create" element={<AnimalForm />} />
 
                 {/* Render the locations list when http://localhost:3000/locations */}
                 <Route exact path="/locations" element={<LocationList />} />
