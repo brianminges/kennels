@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 //import the components we will need
 import { EmployeeCard } from './EmployeeCard';
 import { getAllEmployees, getEmployeeById, deleteEmployee } from '../../modules/EmployeeManager';
@@ -6,6 +8,7 @@ import { getAllEmployees, getEmployeeById, deleteEmployee } from '../../modules/
 export const EmployeeList = () => {
   // The initial state is an empty array
   const [employees, setEmployees] = useState([]);
+  const navigate = useNavigate();
 
   const getEmployees = () => {
     // After the data comes back from the API, we
@@ -30,12 +33,21 @@ export const EmployeeList = () => {
 
   // Finally we use .map() to "loop over" the animals array to show a list of animal cards
   return (
-    <div className="container-cards">
-      {employees.map(employee => 
-      <EmployeeCard 
-      key={employee.id} 
-      employee={employee}
-      handleDeleteEmployee={handleDeleteEmployee} />)}
-    </div>
+    <>
+      <section className="section-content">
+        <button type="button"
+          className="btn"
+          onClick={() => {navigate("/employees/create")}}>
+          Add Employee
+        </button>
+      </section>
+      <div className="container-cards">
+        {employees.map(employee => 
+        <EmployeeCard 
+        key={employee.id} 
+        employee={employee}
+        handleDeleteEmployee={handleDeleteEmployee} />)}
+      </div>
+    </>
   );
 };

@@ -46,11 +46,11 @@ export const AnimalForm = () => {
 	}
 
 
-    const getLocations = () => {
-        return getAllLocations().then(locationsFromAPI => {
-            setLocations(locationsFromAPI)
-        })
-    }; 
+    // const getLocations = () => {
+    //     return getAllLocations().then(locationsFromAPI => {
+    //         setLocations(locationsFromAPI)
+    //     })
+    // }; 
     
     const getCustomers = () => {
         return getAllCustomers().then(customersFromAPI => {
@@ -61,10 +61,10 @@ export const AnimalForm = () => {
 
     useEffect(() => {
 		//load location data and setState
-        getLocations()
+        getAllLocations().then(setLocations)
 	}, []);
 
-     useEffect(() => {
+    useEffect(() => {
 		//load customer data and setState
         getCustomers()
 	}, []);

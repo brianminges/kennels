@@ -32,9 +32,9 @@ export const AnimalList = () => {
     <>
       <section className="section-content">
         <button type="button"
-            className="btn"
-            onClick={() => {navigate("/animals/create")}}>
-            Admit Animal
+          className="btn"
+          onClick={() => {navigate("/animals/create")}}>
+          Admit Animal
         </button>
       </section>
       <div className="container-cards">

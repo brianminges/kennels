@@ -1,5 +1,6 @@
 import React from "react"
 import "./Employee.css"
+import { Link } from "react-router-dom";
 
 import { getAllEmployees } from "./../../modules/EmployeeManager.js"
 
@@ -14,6 +15,9 @@ export const EmployeeCard = ({employee, handleDeleteEmployee}) => (
           </span></h3>
           <p>Location: {employee.locationId}</p>
           <button type="button" onClick={() => handleDeleteEmployee(employee.id)}>You're fired!</button>
+          <Link to={`/employees/${employee.id}/edit`}>
+            <button>Edit</button>
+          </Link>
         </div>
       </div>
 )
