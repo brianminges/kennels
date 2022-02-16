@@ -39,3 +39,18 @@ export const updateAnimal = (editedAnimal) => {
   }).then(data => data.json());
 }
 
+export const getRandomId = () => {
+  return fetch(`${remoteURL}/animals`)
+    .then(result => result.json())
+    .then(animals => {
+      const randomIndex = Math.floor(Math.random() * animals.length);
+      const randomAnimal = animals[randomIndex];
+      return randomAnimal.id;
+  });
+}
+
+
+export const getCatPicture = () => {
+  return fetch(`https://api.thecatapi.com/v1/images/search`)
+  .then(res => res.json())
+}

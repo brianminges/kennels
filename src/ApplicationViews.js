@@ -17,7 +17,8 @@ import { AnimalEditForm } from './components/animal/AnimalEditForm'
 import { EmployeeEditForm } from './components/employee/EmployeeEditForm'
 import { LocationEditForm } from './components/location/LocationEditForm'
 import { CustomerEditForm } from './components/customer/CustomerEditForm'
-
+import { AboutSite } from './components/about/AboutDetail'
+import { JobsList } from './components/careers/JobsDetail'
 
 
 export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -53,15 +54,19 @@ export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
                 <Route path="/locations/create" element={<PrivateRoute><LocationForm /></PrivateRoute>} />
                 <Route path="/locations/:locationId/edit" element={<PrivateRoute><LocationEditForm /></PrivateRoute>} />
 
-                {/* Render the animal list when http://localhost:3000/customers */}
+                {/* Render the customers list when http://localhost:3000/customers */}
                 <Route exact path="/customers" element={<PrivateRoute><CustomerList /></PrivateRoute>} />
                 <Route path="/customers/create" element={<PrivateRoute><CustomerForm /></PrivateRoute>} />
                 <Route path="/customers/:customerId/edit" element={<PrivateRoute><CustomerEditForm /></PrivateRoute>} />
 
-                {/* Render the animal list when http://localhost:3000/employees */}
+                {/* Render the employees list when http://localhost:3000/employees */}
                 <Route exact path="/employees" element={<PrivateRoute><EmployeeList /></PrivateRoute>} />
                 <Route path="/employees/create" element={<PrivateRoute><EmployeeForm /></PrivateRoute>} />
                 <Route path="/employees/:employeeId/edit" element={<PrivateRoute><EmployeeEditForm /></PrivateRoute>} />
+
+                <Route exact path="/about" element={(<PrivateRoute><AboutSite/></PrivateRoute>)} />
+
+                <Route exact path="/careers" element={<PrivateRoute><JobsList/></PrivateRoute>} />
 
             </Routes>
         </>

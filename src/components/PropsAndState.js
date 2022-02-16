@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
+// import { useEffect } from "react/cjs/react.production.min"
 
 // export const PropsAndState = ({ yourName }) => {
 //   let [countClicks, setCountClicks] = useState(0)
@@ -19,8 +20,9 @@ import React, { useState } from "react"
 //   )
 // }
 
-export const PropsAndState = ({ yourName, address}) => {
+export const PropsAndState = () => {
   let [countClicks, setCountClicks] = useState(0)
+  let [multiple, setMultiple] = useState(0)
 
   const handleClick = () => {
     //good practice:
@@ -29,13 +31,16 @@ export const PropsAndState = ({ yourName, address}) => {
     setCountClicks(newCountClicks)
   }
 
+  useEffect(() => {
+    let newMultiple = countClicks * 4
+    setMultiple(newMultiple)
+  }, [countClicks]);
+
   return (
     <>
-      <h3>Welcome, {yourName} </h3>
-      {/* <p>{address.streetAddress} </p>
-      <p>{address.city}, {address.state} {address.zip} </p> */}
       <p>{countClicks}</p>
       <button onClick={(handleClick)}>Click Me</button>
+      <p>Click times four: {multiple}</p>
     </>
   )
 }

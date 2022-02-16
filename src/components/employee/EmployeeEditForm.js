@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import {useNavigate, useParams} from "react-router-dom";
 import {getEmployeeById, updateEmployee} from "../../modules/EmployeeManager"
-import { getAllLocations } from '../../modules/LocationManager';
+import { getAllLocations } from '../../modules/LocationManager'
 import "./EmployeeForm.css"
 
 export const EmployeeEditForm = () => {
